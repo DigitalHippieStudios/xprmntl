@@ -38,14 +38,14 @@ body {
     position: relative;
 }
 
-.content::before{
+.content:before{
     content: '';
     position:absolute;
     top: 0;
     left: 0;
     width: 100%;
     border-bottom: 1px solid var(--lightColor);
-    transform: scaleX(1);
+    transform: scaleX(0);
 }
 
 h1{
@@ -60,3 +60,9 @@ h1, p{
     flex-grow: 1;
     clip-path: polygon(0 0,100% 0,100% 0,0 0)/*make text disapere*/
 }
+
+p{
+    font-size: 1.3rem;
+    width: 40vw;
+}
+
