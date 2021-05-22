@@ -10,44 +10,69 @@
 <body>
     <div class="container">
         <div class="content">
-            <h1>Digital<br>Hippie</h1>
-            <p>Virtual Solutions For Virtually Everything</p>
+            <!-- <h1>Digital<br>Hippie</h1>
+            <p>Virtual Solutions, For Virtually Everything</p> -->
+            <!-- <table id=nav>
+                <td class="ti"><a href="https://www.youtube.com/channel/UClsqfYTkl1wV6Rgk5fFKSyg"><p>out of context</p></a></td>
+                <td class="ti"><a href="https://www.instagram.com/digitalHippie_"><p>socials</p></a></td>
+                <td class="ti"><a href="https://www.linkedin.com/in/boipelo-ashley-modise-a136a311a/"><p>creator</p></a></td>
+            </table> -->
+            <div class="linkGroup">
+                <div class="link">
+                    <a href="//www.youtube.com/channel/UClsqfYTkl1wV6Rgk5fFKSyg">
+                        <p>out of context</p>
+                    </a>
+                </div>
+                <div class="link">
+                    <a href="https://www.instagram.com/digitalHippie_">
+                        <p>socials</p>
+                    </a>
+                </div>
+                <div class="link">
+                    <a href="https://www.linkedin.com/in/boipelo-ashley-modise-a136a311a/">
+                        <p>creator</p>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
     <!--CANVAS-->
     <canvas class="webgl"></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
         integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/CSSRulePlugin.min.js"
         integrity="sha512-0bzaetZStCnsUgbCtGVxftzF/L32PNOnrMlYLXwBOKl8cUjTSSDfJVyyJsNwGoI0iE0WUqni2eEfO35kJjFj5g=="
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
     <script>
-        const content  = CSSRulePlugin.getRule(".content::before")
+        const content = CSSRulePlugin.getRule('.content::before')
         const h1 = document.querySelector('h1')
-        const p = document.querySelector('p')
+        const words = document.querySelector('.link')
         const tl = gsap.timeline()
+        const tlmx = new timelineMax();
 
-        tl.from(content, {
-            delay: 1,
-            duration: 4,
-            cssRule: {
-                scaleX: 1
+
+
+
+        //text
+        // tl.to(h1, {
+        //     duration: 1,
+        //     clipPath: 'polygon(0 0,100% 0, 100% 100%,0% 100%) ',
+        //     y: '30px',
+        // })
+
+        tlmx.staggerTo(".link", 1, {
+            cycle: {
+                y: function (index) {
+                    return 30;
+                    y: '30px'
+                    // clipPath: 'polygon(0 0,100% 0, 100% 100%,0% 100%) ';
+                },
             }
-        })
-
-        tl.to(h1, {
-            duration: 2,
-            clipPath: 'polygon(0 0,100% 0, 100% 100%,0% 100%)',
-            y:'30px'
-        })
-        tl.to(p, {
-            duration: 4,
-            clipPath: 'polygon(0 0,100% 0, 100% 100%,0% 100%) ',
-            y:'30px'
-        })
+        }, 0.1)
     </script>
 </body>
 

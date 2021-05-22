@@ -28,9 +28,12 @@ const particlesCnt = 5000; //no. of particles
 
 const posArray = new Float32Array(particlesCnt * 3);
 
+//set random position
 for (let x = 0; x < particlesCnt * 3; x++) {
     posArray[x] = (Math.random() - 0.5) * 8;
 }
+
+
 
 particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
@@ -38,14 +41,14 @@ particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
 // const material = new THREE.PointsMaterial({  
 //     size:0.0005,
-  
+
 // })
 
 const material = new THREE.MeshStandardMaterial({
-    metalness : 0.7,
-    roughness : 0.2,
-    color : '#24242a',
-    normalMap : normalTexture,
+    metalness: 0.7,
+    roughness: 0.2,
+    color: '#24242a',
+    normalMap: normalTexture,
 })
 
 //stars
@@ -142,13 +145,13 @@ const tick = () => {
 
 
     // Update objects
-    sphere.rotation.y = elapsedTime *0.318;
-    partMesh.rotation.y = -0.1;
+    sphere.rotation.y = elapsedTime * 0.318;
+    partMesh.rotation.y = -0.01;
 
     partMesh.rotation.x = mouseY * (elapsedTime * 0.0002);
     partMesh.rotation.y = mouseX * (elapsedTime * -0.0005);
 
- 
+
 
     // Update Orbital Controls
     // controls.update()

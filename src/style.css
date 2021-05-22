@@ -1,8 +1,10 @@
 :root {
     --lightColor: azure;
+    --linkHover: rgb(247, 58, 237);
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -31,6 +33,7 @@ body {
 }
 
 .content{
+    /* position: relative; */
     display: flex;
     gap: 5em;
     width: 100%;
@@ -38,14 +41,30 @@ body {
     position: relative;
 }
 
-.content:before{
+.content::before{
     content: '';
     position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: 1px solid var(--lightColor);
-    transform: scaleX(0);
+    top: 30%;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    border-bottom:1px solid var(--lightColor);
+    animation-name: opening;
+    animation-duration: 4s;
+}
+
+@keyframes opening {
+    from{transform: scaleX(0);}
+    to{transform: scaleX(1);}
+}
+
+
+.linkGroup{
+    display: flex;
+    left: 10%;
+    right: 10%;
+    /* width: 50%; */
+    gap: 1em;
 }
 
 h1{
@@ -53,16 +72,43 @@ h1{
     width: 50vw;
     line-height: 97%;
     text-align: right;
-}
+} 
 
-h1, p{
+h1, .link {
     flex-basis: 0;
     flex-grow: 1;
-    clip-path: polygon(0 0,100% 0,100% 0,0 0)/*make text disapere*/
+    /*clip-path: polygon(0 0,100% 0,100% 0,0 0);/*make text disapere*/
+    /* animation-name:drop;
+    animation-duration: 4s; */
 }
+
+
+.link{
+    position: relative;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    border: solid 1px;
+    margin:auto;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 .1em;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: var(--linkHover);
+    border: var(--linkHover);
+    text-shadow: 0 0 0.125em hsl(0  0%  100% / 0.2,0 0 0.45em var(--linkHover));/*text shadow*/
+}
+
+
+/* @keyframes drop {
+    from{translateY:(0px);}
+    to{translateY:(10px);}    
+} */
 
 p{
     font-size: 1.3rem;
-    width: 40vw;
+    width: 30vw;
 }
 
